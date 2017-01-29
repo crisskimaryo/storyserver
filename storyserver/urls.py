@@ -19,25 +19,16 @@ from django.contrib import admin
 # from api.views import timetable ,updater ,calender,AuthView,RegView
 
 from sb_api1.urls import router
-from rest_framework.authtoken.views import obtain_auth_token
+from sb_api1.views import books
 
 
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^sb_api1/boo/$', books.as_view()),
 
     #api links
     url(r'^sb_api1/', include(router.urls)),
-    # url(r'^api/token/', obtain_auth_token, name='api-token'),
-    
-    # #in future  link below should moved to another urls so that to give a clean arrangement
-    # url(r'^api/auth/$',AuthView.as_view()),
-    # url(r'^api/reg/$',RegView.as_view()),
-    # # url(r'^api/timetable/$', timetable.as_view()),
-   
-    # # this are for rest_auth , from copy and paste
 
-    # url(r'^rest-auth/', include('rest_auth.urls')),
-    # url(r'^rest-auth/registration/', include('rest_auth.registration.urls')),  
 ]
